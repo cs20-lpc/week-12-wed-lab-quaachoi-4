@@ -1,5 +1,6 @@
 #pragma once
 #include "HashTableClosed.hpp"
+#include <cmath>
 
 template <typename T>
 class QuadraticProbing : public HashTableClosed<T> {
@@ -9,7 +10,7 @@ public:
 
     int probeIndex(const T& key, int i) const override {
         // TODO: Implement quadratic probing
-        return 0;
+        return (this->hash1(key) + (int)pow(i, 2)) % this->M;
     }
 
    
